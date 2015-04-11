@@ -1,0 +1,19 @@
+body {
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+
+.theme-glimpse-dropdown .dropdown-menu {
+	position: static;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.theme-glimpse-page > p > .btn {
+	margin: 5px 0;
+}
+
+.theme-glimpse-page .navbar .container {
+	width: auto;
+}
+
