@@ -1,0 +1,20 @@
+# Plugins:
+gems: [jekyll-paginate]
+
+# Basic information:
+title: Glimpse Framework
+url: http://glimpseframework.org/
+
+# Social media:
+twitter: glimpse_fw
+
+# Blog:
+paginate: 10
+paginate_path: "/posts/:num/"
+
+# Syntax coloring:
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

@@ -1,0 +1,24 @@
+<nav class="theme-glimpse-navbar navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top-menu" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<a class="visible-xs navbar-brand" href="/" itemprop="name">{% if page.mobileTitle %}{{ page.mobileTitle }}{% else %}{{ page.title }}{% endif %}</a>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-top-menu" aria-expanded="true">
+			<ul class="nav navbar-nav">
+				{% for menuItem in site.data.menu %}
+				<li><a href="{{ menuItem.url }}">{{ menuItem.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+</nav>

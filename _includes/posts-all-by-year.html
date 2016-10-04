@@ -1,0 +1,22 @@
+
+{% for post in site.posts  %}
+
+	{% assign curr_year = post.date | date: "%Y" %}
+	{% assign next_year = post.previous.date | date: "%Y" %}
+
+	{% if forloop.first %}
+		<h3>{{curr_year}}</h3>
+		<ul>
+	{% endif %}
+
+	<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+
+	{% if forloop.last %}
+		</ul>
+	{% elsif curr_year != next_year %}
+		</ul>
+		<h3>{{next_year}}</h3>
+		<ul>
+	{% endif %}
+
+{% endfor %}

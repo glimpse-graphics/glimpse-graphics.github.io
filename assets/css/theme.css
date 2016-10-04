@@ -1,0 +1,123 @@
+body {
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+
+@media (max-width: 480px) {
+	body { font-size: 10pt; }
+	.navbar-brand { font-size: 11pt; }
+}
+
+@media (min-width: 768px) { body { font-size: 12pt; } }
+@media (min-width: 1200px) { body { font-size: 14pt; } }
+
+.theme-glimpse-navbar {
+	background-image: none;
+	background-color: #3f51b5;
+}
+
+.theme-glimpse-navbar .navbar-toggle {
+    border-color: #ffffff;
+}
+
+.theme-glimpse-navbar .navbar-toggle:focus,
+.theme-glimpse-navbar .navbar-toggle:hover {
+    background-color: #3f51b5;
+}
+
+.theme-glimpse-navbar .navbar-brand {
+	color: #ffffff;
+}
+
+.theme-glimpse-navbar .navbar-nav>li>a:link,
+.theme-glimpse-navbar .navbar-nav>li>a:active,
+.theme-glimpse-navbar .navbar-nav>li>a:visited {
+	color: #c5cae9;
+}
+
+.theme-glimpse-navbar .navbar-nav>li>a:hover {
+	color: #ffffff;
+}
+
+.theme-glimpse-dropdown .dropdown-menu {
+	position: static;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.theme-glimpse-jumbotron {
+	background-image: none;
+	background-color: #ffffff;
+	font-size: 100%;
+}
+
+.theme-glimpse-page .theme-glimpse-jumbotron {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.theme-glimpse-page .subtitle-xs {
+	padding: 20px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+h2 { font-size: 220%; }
+h3 { font-size: 180%; }
+h4 { font-size: 140%; }
+h5 { font-size: 110%; }
+
+p { margin: 0 0 10pt }
+
+a,
+a:link,
+a:active,
+a:visited {
+	color: #5c6bc0;
+}
+
+a:hover {
+	color: #7986cb;
+	text-decoration: underline;
+}
+
+.post-date {
+	color: #a0a0a0;
+	padding-bottom: 10px;
+}
+
+.post-abstract {
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+	background-color: #3f51b5;
+	border-color: #3f51b5;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+	color: #3f51b5;
+}
+
+.pagination>li>a:hover,
+.pagination>li>span:hover {
+    color: #7986cb;
+}
+
+.MathJax_Display {
+	text-align: left !important;
+	margin-left: 4em !important;
+}
+
+@media (max-width: 480px) {
+	.MathJax_Display {
+		font-size: 8pt !important;
+		text-align: left !important;
+		margin-left: 1em !important;
+	}
+}
