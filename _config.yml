@@ -18,3 +18,12 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+# Examples:
+collections:
+  examples:
+    output: true
+    permalink: /examples/:path/
+
+glimpse_version: "0.3"
+kotlin_version: "1.0.4"
