@@ -22,7 +22,11 @@ keywords: glimpse,framework,opengl,3d,kotlin,functional,programming
 </div>
 
 {% for item in site.data.news limit:5 %}
-	<h2>{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h2>
-	<div class="post-date">{{ item.date | date: '%B %d, %Y' }}</div>
-	<div class="post-abstract">{{ item.content }}</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h4>{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h4>
+			<div class="post-date">{{ item.date | date: '%B %d, %Y' }}</div>
+			<div class="post-abstract">{{ item.content }}</div>
+		</div>
+	</div>
 {% endfor %}
