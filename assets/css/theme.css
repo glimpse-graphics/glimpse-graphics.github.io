@@ -14,6 +14,7 @@ body {
 .theme-glimpse-navbar {
 	background-image: none;
 	background-color: #3f51b5;
+	border: none;
 }
 
 .theme-glimpse-navbar .navbar-toggle {
