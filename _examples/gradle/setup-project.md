@@ -2,6 +2,7 @@
 title: Setup Gradle project
 mobileTitle: Setup Gradle project
 subtitle: for desktop applications
+group: Project setup
 layout: post
 abstract: Setup Glimpse Framework in a Gradle project
 keywords: glimpse,framework,opengl,3d,gradle,setup
