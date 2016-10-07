@@ -1,5 +1,5 @@
 # Plugins:
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-assets]
 
 # Basic information:
 title: Glimpse Framework
@@ -25,5 +25,22 @@ collections:
     output: true
     permalink: /examples/:path/
 
+# Versions:
 glimpse_version: "0.3"
 kotlin_version: "1.0.4"
+
+# Assets:
+assets:
+  compress:
+    css: true
+    js: true
+  cache_type: filesystem
+  prefix: "/assets"
+  digest: true
+  assets:
+    - "*.png"
+    - "*.css"
+  sources:
+    - _assets/css
+    - _assets/img
+    - _assets/js
