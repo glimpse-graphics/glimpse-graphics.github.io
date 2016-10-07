@@ -3,7 +3,7 @@ gems: [jekyll-paginate]
 
 # Basic information:
 title: Glimpse Framework
-url: http://glimpseframework.org/
+url: http://glimpseframework.org
 
 # Social media:
 twitter: glimpse_fw
