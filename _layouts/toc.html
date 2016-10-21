@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebSite">
+
+	{% include head.html %}
+
+	<body role="document">
+
+		{% include navbar.html %}
+
+		<div class="container theme-glimpse-page" role="main" itemprop="text">
+
+			{% include header.html %}
+
+			<div class="row">
+				<div class="hidden-xs col-sm-4 col-md-3">
+					<div class="toc js-toc"></div>
+				</div>
+				<div class="content js-toc-content col-xs-18 col-sm-8 col-md-9">
+					{{ content }}
+				</div>
+			</div>
+
+		</div>
+
+		{% include footer.html %}
+
+		<script src="/assets/js/tocbot.min.js"></script>
+		<script>
+			tocbot.init({
+				tocSelector: '.js-toc',
+				contentSelector: '.js-toc-content',
+				headingSelector: 'h2, h3, h4',
+				headingsOffset: 245,
+				fixedSidebarOffset: 245,
+				positionFixedSelector: '.toc',
+				smoothScrollOptions: {
+					easing: 'easeInOutCubic',
+					offset: 245,
+					speed: 500,
+					updateURL: true
+				},
+			});
+		</script>
+	</body>
+
+</html>

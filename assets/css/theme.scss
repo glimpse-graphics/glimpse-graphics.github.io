@@ -23,6 +23,26 @@
 @mixin bg-70-fluorescent { background-color: #7db312; }
 @mixin bg-80-fluorescent { background-color: #8fcc14; }
 
+@mixin bg-cool-10 { background-color: #140a2f; }
+@mixin bg-cool-20 { background-color: #20163f; }
+@mixin bg-cool-30 { background-color: #2C2249; }
+@mixin bg-cool-40 { background-color: #37304d; }
+@mixin bg-cool-50 { background-color: #47347a; }
+@mixin bg-cool-60 { background-color: #604f8e; }
+@mixin bg-cool-70 { background-color: #786b9f; }
+@mixin bg-cool-80 { background-color: #9288b0; }
+@mixin bg-cool-90 { background-color: #b2aac6; }
+@mixin bg-cool-95 { background-color: #ebe3ff; }
+
+@mixin bg-hot-20 { background-color: #582900; }
+@mixin bg-hot-20 { background-color: #843D00; }
+@mixin bg-hot-40 { background-color: #a74d00; }
+@mixin bg-hot-50 { background-color: #d96400; }
+@mixin bg-hot-60 { background-color: #ff7600; }
+@mixin bg-hot-70 { background-color: #ff9400; }
+@mixin bg-hot-80 { background-color: #ffb270; }
+@mixin bg-hot-90 { background-color: #ffcea4; }
+
 /* Special backgrounds */
 @mixin bg-bar-transparent { background-color: rgba(20, 10, 47, 0.8); }
 @mixin bg-footer { background-color: #0f0a12; }
@@ -75,7 +95,7 @@
 @mixin text-cool-80 { color: #9288b0; }
 @mixin text-cool-90 { color: #b2aac6; }
 
-@mixin text-hot-20 { color: #582900; }
+@mixin text-hot-10 { color: #582900; }
 @mixin text-hot-20 { color: #843D00; }
 @mixin text-hot-40 { color: #a74d00; }
 @mixin text-hot-50 { color: #d96400; }
@@ -271,4 +291,59 @@ code {
 		text-align: left !important;
 		margin-left: 1em !important;
 	}
+}
+
+.toc {
+	overflow-y: auto;
+	display: block;
+}
+
+.toc>ul {
+	overflow: hidden;
+	position: relative;
+}
+
+.toc-list {
+	margin: 0;
+	padding-left: 10px;
+}
+
+.is-collapsible {
+	max-height: 1000px;
+	overflow: hidden;
+	transition: all 300ms ease-in-out;
+}
+
+.is-collapsed {
+	max-height: 0px;
+}
+
+.is-position-fixed {
+	position: fixed !important;
+	top: 60px;
+}
+
+a.toc-link {
+	@include text-cool-50;
+	height: 100%;
+}
+
+.toc-link::before {
+	@include bg-cool-95;
+	content: ' ';
+	display: inline-block;
+	height: inherit;
+	left: 0px;
+	margin-top: -1px;
+	position: absolute;
+	width: 3px;
+}
+
+a.is-active-link {
+	font-weight: bold;
+	@include text-hot-60;
+}
+
+.is-active-link::before {
+	@include bg-hot-60;
 }
