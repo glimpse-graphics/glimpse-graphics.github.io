@@ -23,6 +23,10 @@
 @mixin bg-70-fluorescent { background-color: #7db312; }
 @mixin bg-80-fluorescent { background-color: #8fcc14; }
 
+/* Special backgrounds */
+@mixin bg-bar-transparent { background-color: rgba(20, 10, 47, 0.8); }
+@mixin bg-footer { background-color: #0f0a12; }
+
 /* Border */
 @mixin border-0 { border-color: #000000; }
 @mixin border-10 { border-color: #121a03; }
@@ -61,12 +65,24 @@
 @mixin text-70-fluorescent { color: #7db312; }
 @mixin text-80-fluorescent { color: #8fcc14; }
 
-@mixin text-secondary-40 { color: #a74d00; }
-@mixin text-secondary-50 { color: #d96400; }
-@mixin text-secondary-60 { color: #ff7600; }
-@mixin text-secondary-70 { color: #ff9400; }
-@mixin text-secondary-80 { color: #ffb270; }
-@mixin text-secondary-90 { color: #ffcea4; }
+@mixin text-cool-10 { color: #140a2f; }
+@mixin text-cool-20 { color: #20163f; }
+@mixin text-cool-30 { color: #2C2249; }
+@mixin text-cool-40 { color: #37304d; }
+@mixin text-cool-50 { color: #47347a; }
+@mixin text-cool-60 { color: #604f8e; }
+@mixin text-cool-70 { color: #786b9f; }
+@mixin text-cool-80 { color: #9288b0; }
+@mixin text-cool-90 { color: #b2aac6; }
+
+@mixin text-hot-20 { color: #582900; }
+@mixin text-hot-20 { color: #843D00; }
+@mixin text-hot-40 { color: #a74d00; }
+@mixin text-hot-50 { color: #d96400; }
+@mixin text-hot-60 { color: #ff7600; }
+@mixin text-hot-70 { color: #ff9400; }
+@mixin text-hot-80 { color: #ffb270; }
+@mixin text-hot-90 { color: #ffcea4; }
 
 @mixin text-white { color: #ffffff; }
 @mixin text-white-80 { color: rgba(255, 255, 255, 0.8); }
@@ -77,7 +93,7 @@
 
 body {
 	padding-top: 70px;
-	padding-bottom: 30px;
+	padding-bottom: 0px;
 }
 
 @media (max-width: 480px) {
@@ -85,12 +101,19 @@ body {
 	.navbar-brand { font-size: 11pt; }
 }
 
-@media (min-width: 768px) { body { font-size: 12pt; } }
+@media (min-width: 768px) {
+	body { font-size: 12pt; }
+	.navbar-brand {
+		padding: 6px 15px;
+		img { height: 36px; }
+	}
+}
+
 @media (min-width: 1200px) { body { font-size: 14pt; } }
 
 .theme-glimpse-navbar {
 	background-image: none;
-	@include bg-40;
+	@include bg-bar-transparent;
 	border: none;
 
 	.navbar-toggle {
@@ -99,11 +122,15 @@ body {
 
 	.navbar-toggle:focus,
 	.navbar-toggle:hover {
-		@include bg-40;
+		@include bg-bar-transparent;
 	}
 
 	.navbar-brand {
 		@include text-white;
+	}
+
+	.navbar-nav>li>a {
+		font-weight: bold;
 	}
 
 	.navbar-nav>li>a:link,
@@ -158,20 +185,28 @@ body {
 	}
 }
 
+.theme-glimpse-footer {
+	margin: 120px 0px 0px;
+	padding: 60px 0px;
+	@include bg-footer;
+	@include text-white-80;
+	font-size: 80%;
+}
+
 h2 {
-	@include text-20;
+	@include text-cool-20;
 	font-size: 220%;
 }
 h3 {
-	@include text-30;
+	@include text-cool-30;
 	font-size: 180%;
 }
 h4 {
-	@include text-40;
+	@include text-cool-40;
 	font-size: 140%;
 }
 h5 {
-	@include text-50;
+	@include text-cool-50;
 	font-size: 110%;
 }
 
@@ -181,11 +216,11 @@ a,
 a:link,
 a:active,
 a:visited {
-	@include text-secondary-60;
+	@include text-hot-60;
 }
 
 a:hover {
-	@include text-secondary-80;
+	@include text-hot-80;
 	text-decoration: underline;
 }
 
