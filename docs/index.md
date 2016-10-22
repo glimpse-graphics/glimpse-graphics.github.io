@@ -17,9 +17,9 @@ The source code is written in [Kotlin](https://kotlinlang.org/) and it is intend
 
 Glimpse Framework is distributed under [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-## 1. Project Setup
+## Project Setup
 
-### 1.1 Desktop Applications
+### Desktop Applications
 
 Desktop applications require at least following dependencies:
 
@@ -54,98 +54,98 @@ dependencies {
 }
 ```
 
-### 1.2 Android Applications
+### Android Applications
 
-## 2. Basic API
+## Basic API
 
-### 2.1 Points
+### Points
 
-### 2.2 Vectors
+### Vectors
 
-### 2.3 Matrices
+### Matrices
 
-### 2.4 Angles
+### Angles
 
-### 2.5 Colors
+### Colors
 
-### 2.6 Texture Coordinates
+### Texture Coordinates
 
-### 2.7 Buffers
+### Buffers
 
-### 2.8 Resources
+### Resources
 
-## 3. Constructing A Scene
+## Constructing A Scene
 
-### 3.1 Basic Configuration
+### Basic Configuration
 
-### 3.2 Meshes
+### Meshes
 
-#### 3.2.1 Vertices And Faces
+#### Vertices And Faces
 
-#### 3.2.2 Curves
+#### Curves
 
-#### 3.2.3 Polygons
+#### Polygons
 
-#### 3.2.4 Prisms
+#### Prisms
 
-#### 3.2.5 Surfaces of Revolution
+#### Surfaces of Revolution
 
-#### 3.2.6 Platonic Solids
+#### Platonic Solids
 
-#### 3.2.7 OBJ Files
+#### OBJ Files
 
-### 3.3 Models
+### Models
 
-#### 3.3.1 Transformations
+#### Transformations
 
-### 3.4 Materials
+### Materials
 
-#### 3.4.1 Shaders
+#### Shaders
 
-#### 3.4.2 Textures
+#### Textures
 
-#### 3.4.3 Predefined Materials
+#### Predefined Materials
 
-### 3.5 Lights
+### Lights
 
-#### 3.5.1 Direction Lights
+#### Direction Lights
 
-#### 3.5.2 Point Lights
+#### Point Lights
 
-#### 3.5.3 Spotlights
+#### Spotlights
 
-### 3.6 Cameras
+### Cameras
 
-#### 3.6.1 Camera Projection
+#### Camera Projection
 
-#### 3.6.2 Camera Position
+#### Camera Position
 
-### 3.7 Lights, Camera, Action
+### Lights, Camera, Action
 
-## 4. Desktop Applications
+## Desktop Applications
 
-### 4.1 Glimpse Frame
+### Glimpse Frame
 
-### 4.2 Rendering
+### Rendering
 
-### 4.3 Menus
+### Menus
 
-### 4.4 Input
+### Input
 
-#### 4.4.1 Mouse
+#### Mouse
 
-## 5. Android Applications
+## Android Applications
 
-### 5.1 Glimpse View
+### Glimpse View
 
-### 5.2 Assets And Resources
+### Assets And Resources
 
-### 5.3 Activity
+### Activity
 
-## 6. Advanced Concepts
+## Advanced Concepts
 
-### 6.1 GLES Facade
+### GLES Facade
 
-### 6.2 Disposables
+### Disposables
 
-### 6.3 Custom Implementations
+### Custom Implementations

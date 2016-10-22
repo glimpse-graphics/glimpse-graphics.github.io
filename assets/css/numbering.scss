@@ -1,0 +1,60 @@
+---
+---
+
+/* Definitions: */
+
+@mixin reset1 { counter-reset: level1header; }
+@mixin reset2 { counter-reset: level2header; }
+@mixin reset3 { counter-reset: level3header; }
+@mixin reset4 { counter-reset: level4header; }
+@mixin reset5 { counter-reset: level5header; }
+
+@mixin numbering1 {
+	counter-increment: level1header;
+	content: counter(level1header) ". ";
+}
+
+@mixin numbering2 {
+	counter-increment: level2header;
+	content: counter(level1header) "." counter(level2header) " ";
+}
+
+@mixin numbering3 {
+	counter-increment: level3header;
+	content: counter(level1header) "." counter(level2header) "." counter(level3header) " ";
+}
+
+@mixin numbering4 {
+	counter-increment: level4header;
+	content: counter(level1header) "." counter(level2header) "." counter(level3header) "." counter(level4header) " ";
+}
+
+@mixin numbering5 {
+	counter-increment: level5header;
+	content: counter(level1header) "." counter(level2header) "." counter(level3header) "." counter(level4header) "." counter(level5header) " ";
+}
+
+
+/* Headers numbering: */
+
+body { @include reset1; }
+h1 { @include reset1; }
+h2:before { @include numbering1; }
+h2 { @include reset2; }
+h3:before { @include numbering2; }
+h3 { @include reset3; }
+h4:before { @include numbering3; }
+h4 { @include reset4; }
+h5:before { @include numbering4; }
+h5 { @include reset5; }
+h6:before { @include numbering5; }
+
+
+/* ToC items numbering: */
+
+.toc { @include reset1; }
+.toc>.toc-list>.toc-list-item>a.toc-link:before { @include numbering1; }
+.toc>.toc-list>.toc-list-item>a.toc-link { @include reset2; }
+.toc>.toc-list>.toc-list-item>.toc-list>.toc-list-item>a.toc-link:before { @include numbering2; }
+.toc>.toc-list>.toc-list-item>.toc-list>.toc-list-item>a.toc-link { @include reset3; }
+.toc>.toc-list>.toc-list-item>.toc-list>.toc-list-item>.toc-list>.toc-list-item>a.toc-link:before { @include numbering3; }
