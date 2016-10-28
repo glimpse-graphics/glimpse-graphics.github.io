@@ -25,5 +25,5 @@ collections:
     output: true
     permalink: /examples/:path/
 
-glimpse_version: "0.3"
+glimpse_version: "0.4"
 kotlin_version: "1.0.4"
