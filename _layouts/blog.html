@@ -7,13 +7,15 @@
 
 	</head>
 
-	<body role="document">
+	<body role="document" data-spy="scroll">
 
 		{% include navbar.html %}
 
+		{% include header-jumbotron.html %}
+
 		<div class="container theme-glimpse-page" role="main" itemprop="text">
 
-			{% include header.html %}
+			{% include header-mobile.html %}
 
 			{{ content }}
 

@@ -112,9 +112,12 @@
 /* STYLES */
 
 body {
-	padding-top: 70px;
 	padding-bottom: 0px;
 	@include bg-100;
+}
+
+@media (max-width: 767px) {
+	body { padding-top: 60px; }
 }
 
 @media (max-width: 480px) {
@@ -131,6 +134,25 @@ body {
 }
 
 @media (min-width: 1200px) { body { font-size: 14pt; } }
+
+.theme-glimpse-navbar.affix {
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+
+@media (min-width:768px) {
+	.theme-glimpse-navbar.affix-top {
+		background: transparent;
+		border-color: transparent;
+		padding: 10px 0px;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+}
 
 .theme-glimpse-navbar {
 	background-image: none;
@@ -189,16 +211,18 @@ body {
 
 .theme-glimpse-jumbotron {
 	background-image: none;
-	@include bg-100;
+	@include bg-0;
+	@include text-white-80;
 	font-size: 100%;
-}
+	padding: 96px 0px 64px;
 
-.theme-glimpse-page {
-	.theme-glimpse-jumbotron {
+	.theme-glimpse-page {
 		padding-right: 20px;
 		padding-left: 20px;
 	}
+}
 
+.theme-glimpse-page {
 	.subtitle-xs {
 		padding: 20px;
 		font-weight: bold;
