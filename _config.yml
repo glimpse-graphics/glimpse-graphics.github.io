@@ -1,5 +1,5 @@
 # Plugins:
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 # Basic information:
 title: Glimpse Framework
