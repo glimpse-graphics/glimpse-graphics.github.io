@@ -19,6 +19,9 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+# Include hidden folders:
+include: [".well-known"]
+
 # Examples:
 collections:
   examples:

@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: glimpseframework.org
+Token: de1f44ca2b1ecaa250f9098075429975577bbec8c12b4978f19331e1e7b289e9
