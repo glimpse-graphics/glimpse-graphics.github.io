@@ -2,8 +2,8 @@
 plugins: [jekyll-paginate]
 
 # Basic information:
-title: Glimpse Framework
-url: http://glimpseframework.org
+title: Glimpse
+url: http://glimpse.graphics
 
 # Social media:
 twitter: glimpse_fw
