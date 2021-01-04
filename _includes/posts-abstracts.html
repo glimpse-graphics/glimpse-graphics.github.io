@@ -1,0 +1,40 @@
+
+{% for post in paginator.posts %}
+    <div class="shadow-sm card my-4" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        {% if post.image %}
+        <a class="text-body" href="{{ post.url }}">
+            <img src="/assets/img/post/{{ post.image }}" class="card-img-top" alt="{{ post.title }}" />
+        </a>
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title" itemprop="name headline">
+                <a class="text-body" href="{{ post.url }}">{{ post.title }}</a>
+            </h5>
+            {% if post.author %}
+            {% assign author = site.data.people | where: "id", post.author | first %}
+            {% else %}
+            {% assign author = site.data.people | where: "id", 'glimpse' | first %}
+            {% endif %}
+            <h6 class="card-subtitle text-muted mb-3">
+                <img class="avatar" src="https://www.gravatar.com/avatar/{{ author.emailHash }}?s=36&r=pg&d=mp" alt="{{ author.name }}" />
+                <span itemprop="publisher" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name">{{ author.name }}</span>
+                </span>
+                on
+                <time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: '%d %B %Y' }}</time>
+            </h6>
+            <h6 class="card-subtitle text-muted mb-3">
+                {% assign tags = post.tags[0] | split: ',' %}
+                {% for tag in tags %}
+                <span class="badge badge-light">{{ tag }}</span>
+                {% endfor %}
+            </h6>
+            <p class="card-text" itemprop="description">{{ post.abstract }}</p>
+            <a class="btn btn-primary" href="{{ post.url }}">Read more</a>
+        </div>
+        <div class="d-none" itemprop="author">{{ site.title }}</div>
+        <div class="d-none" itemprop="publisher" itemscope itemtype="http://schema.org/Person">
+            <div class="d-none" itemprop="name">{{ site.title }}</div>
+        </div>
+    </div>
+{% endfor %}

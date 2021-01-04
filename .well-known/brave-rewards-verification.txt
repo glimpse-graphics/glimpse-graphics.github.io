@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: glimpse.graphics
+Token: d987da2a91fe4a85162550c8a76736e472e9c1ac67bd7565e43df1409531b8d1

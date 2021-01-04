@@ -1,0 +1,32 @@
+---
+title: Glimpse Blog
+linkTitle: Blog
+layout: blog
+abstract: Glimpse Blog
+keywords: blog,glimpse,opengl,3d
+---
+
+<div class="row">
+
+    <div class="col-xs-12 col-md-6 col-lg-8">
+
+        {% include posts-paginator.html %}
+        {% include posts-abstracts.html %}
+        {% include posts-paginator.html %}
+
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-4">
+
+        <div id="posts-accordion">
+            <div class="shadow-sm card my-4">
+                <h5 class="card-header">Archive</h5>
+
+                {% include posts-all-by-year.html %}
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="shadow-sm card bg-info text-right my-3">
+    <blockquote class="blockquote mb-0 card-body">
+        <p>{{ include.quote }}</p>
+        <footer class="blockquote-footer text-muted">
+            {% if include.url %}
+            <a href="{{ include.url }}" target="_blank">{{ include.author }}</a>
+            {% else %}
+            {{ include.author }}
+            {% endif %}
+        </footer>
+    </blockquote>
+</div>

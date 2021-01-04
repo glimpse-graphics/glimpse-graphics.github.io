@@ -1,0 +1,15 @@
+
+{% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+
+{% for year in posts_by_year %}
+<div class="card-header">
+    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ year.name }}">{{ year.name }}</button>
+</div>
+<ul id="collapse{{ year.name }}" class="collapse list-group list-group-flush" data-parent="#posts-accordion">
+
+{% for post in year.items %}
+    <li class="list-group-item"><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+
+</ul>
+{% endfor %}

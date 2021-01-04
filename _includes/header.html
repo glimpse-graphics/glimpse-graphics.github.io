@@ -1,0 +1,14 @@
+<div class="jumbotron d-none d-md-block">
+    <div class="container">
+        <h1 class="display-4" itemprop="name headline">{{ page.title | replace: " - ", " &ndash; " }}</h1>
+        {% if page.subtitle %}<p class="lead">{{ page.subtitle }}</p>{% endif %}
+    </div>
+</div>
+{% if page.subtitle %}
+<div class="container d-md-none">
+    <div class="lead my-4">
+        {{ page.subtitle }}
+    </div>
+</div>
+<hr class="my-4 d-md-none">
+{% endif %}

@@ -1,0 +1,41 @@
+# Plugins:
+plugins:
+  - jekyll-paginate
+  - jekyll-coffeescript
+
+# Basic information:
+title: Glimpse
+url: http://glimpse.graphics
+
+# Sass:
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Blog:
+paginate: 3
+paginate_path: "/posts/:num/"
+
+# Syntax coloring:
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Include hidden folders:
+include: [".well-known"]
+
+# Defaults:
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
+
+# Examples:
+collections:
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/

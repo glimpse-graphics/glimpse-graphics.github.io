@@ -1,0 +1,43 @@
+---
+title: Glimpse Framework
+subtitle: OpenGL made simple
+linkTitle: Home
+layout: page
+abstract: Glimpse – OpenGL made simple
+keywords: glimpse,opengl,3d
+---
+
+<div class="card-columns">
+
+    {% for item in site.data.news %}
+    <div class="shadow-sm card">
+        <div class="card-body">
+            <h5 class="card-title">
+                {% if item.url %}
+                <a class="text-body" href="{{ item.url }}" {% if item.url contains '://' %}target="_blank"{% endif %}>{{ item.title }}</a>
+                {% else %}
+                {{ item.title }}
+                {% endif %}
+            </h5>
+            <h6 class="card-subtitle text-muted mb-3"><time datetime="{{ item.date }}" itemprop="datePublished">{{ item.date | date: '%d %B %Y' }}</time></h6>
+            <h6 class="card-subtitle text-muted mb-3">
+                {% assign tags = item.tags | split: ", " %}
+                {% for tag in tags %}
+                <span class="badge badge-light">{{ tag }}</span>
+                {% endfor %}
+            </h6>
+            <p class="card-text">
+                {{ item.content }}
+            </p>
+            {% if item.url %}
+            {% if item.url contains '://' %}
+            <a class="btn btn-light" href="{{ item.url }}" target="_blank">Read more&nbsp;<i class="fas fa-external-link-alt"></i></a>
+            {% else %}
+            <a class="btn btn-primary" href="{{ item.url }}">Read more</a>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+</div>

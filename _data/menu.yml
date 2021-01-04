@@ -1,0 +1,11 @@
+- title: Documentation
+  icon: fas fa-book
+  url: /documentation/
+
+- title: Tutorials
+  icon: fas fa-graduation-cap
+  url: /tutorials/
+
+- title: Blog
+  icon: fas fa-blog
+  url: /posts/

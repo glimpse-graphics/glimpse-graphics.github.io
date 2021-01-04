@@ -1,0 +1,37 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="revisit-after" content="7 DAYS" />
+<meta name="robots" content="All" />
+
+<meta name="author" itemprop="author" content="{{ site.title }}" />
+{% if page.redirect %}<meta http-equiv="refresh" content="1; url={{ page.redirect }}" />{% endif %}
+{% if page.abstract %}<meta name="description" itemprop="description" content="{{ page.abstract }}" />{% endif %}
+{% if page.keywords %}<meta name="keywords" itemprop="keywords" content="{{ page.keywords }}" />{% endif %}
+
+{% if page.image %}
+<meta name="twitter:card" content="summary_large_image" />
+{% else %}
+<meta name="twitter:card" content="summary" />
+{% endif %}
+<meta name="twitter:site" content="@{{ site.twitter }}" />
+<meta name="twitter:title" content='{{ page.title | replace: " - ", " &ndash; " }}' />
+{% if page.abstract %}<meta name="twitter:description" content="{{ page.abstract }}" />{% endif %}
+{% if page.image %}
+<meta name="twitter:image" content="{{ site.url }}/assets/img/page/{{ page.image }}" />
+{% else %}
+<meta name="twitter:image" content="{{ site.url }}/assets/img/icon.png" />
+{% endif %}
+
+<meta name="theme-color" content="#1976d2" />
+<meta name="msapplication-navbutton-color" content="#1976d2" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#1976d2" />
+
+<title>{% if page.linkTitle %}{{ site.title }} :: {{ page.linkTitle }}{% elsif page.title %}{{ site.title }} :: {{ page.title | replace: " - ", " &ndash; " }}{% else %}{{ site.title }}{% endif %}</title>
+
+<link rel="icon" sizes="128x128" href="/assets/img/icon.png">
+
+<link rel="stylesheet" href="/assets/css/theme.css" />
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<script src="https://kit.fontawesome.com/19aabb20a4.js"></script>

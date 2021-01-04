@@ -1,0 +1,26 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/BlogPosting" lang="en">
+    <head>{% include head.html %}</head>
+    <body role="document">
+        {% include navbar.html %}
+        {% include header.html %}
+        <div class="container my-4 blog-post" role="main" itemprop="text">
+            <div class="text-muted mb-4">
+                {% if page.author %}
+                {% assign author = site.data.people | where: "id", page.author | first %}
+                {% else %}
+                {% assign author = site.data.people | where: "id", 'glimpse' | first %}
+                {% endif %}
+                <img class="avatar" src="https://www.gravatar.com/avatar/{{ author.emailHash }}?s=36&r=pg&d=mp" alt="{{ author.name }}" />
+                <span itemprop="publisher" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name">{{ author.name }}</span>
+                </span>
+                on
+                <time datetime="{{ page.date }}" itemprop="datePublished">{{ page.date | date: '%d %B %Y' }}</time>
+            </div>
+            {{ content }}
+        </div>
+        {% include footer.html %}
+        {% include footer-scripts.html %}
+    </body>
+</html>

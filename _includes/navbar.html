@@ -1,0 +1,41 @@
+<nav class="shadow navbar navbar-expand-md sticky-top navbar-dark bg-primary">
+    <div class="container">
+
+        <a class="navbar-brand d-md-none" href="#">
+            {% if page.mobileTitle %}{{ page.mobileTitle }}{% else %}{{ page.title | replace: " - ", " &ndash; " }}{% endif %}
+        </a>
+
+        <a class="navbar-brand d-none d-md-block" href="/">
+            <img
+                    src="/assets/img/3d_icon.png"
+                    alt='{% if page.mobileTitle %}{{ page.mobileTitle }}{% else %}{{ page.title | replace: " - ", " &ndash; " }}{% endif %}'
+                    width="36"
+                    height="36" />
+        </a>
+
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar-top-menu"
+                aria-controls="navbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-top-menu">
+            <ul class="navbar-nav">
+                <li class="nav-item d-md-none">
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                </li>
+                {% for menuItem in site.data.menu %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ menuItem.url }}"><i class="{{ menuItem.icon }}"></i> {{ menuItem.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</nav>
