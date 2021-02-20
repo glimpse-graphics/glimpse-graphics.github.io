@@ -1,6 +1,6 @@
 ---
-title: "Glimpse: Reactivation"
-mobileTitle: "Glimpse: Reactivation"
+title: "Glimpse Reloaded"
+mobileTitle: "Glimpse Reloaded"
 layout: post
 abstract: |
   Glimpse development starts again, this time as a Kotlin
@@ -8,7 +8,7 @@ abstract: |
 keywords: glimpse
 author: sczerwinski
 tags: glimpse
-image: 2021-01-04-glimpse-reactivation.png
+image: 2021-01-04-glimpse-reloaded.png
 ---
 
 I started Glimpse 5 years ago, as an attempt to simplify the use of OpenGL.
