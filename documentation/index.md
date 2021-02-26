@@ -15,12 +15,305 @@ to be used with Kotlin.
 
 Glimpse is distributed under [Apache License Version 2.0][apache-2].
 
+### Glimpse Philosophy
+
+Glimpse aims to solve 2 major issues when it comes to implementing OpenGL
+applications:
+
+1. **The initial setup is usually the most painful part of working with
+   OpenGL.** Most problems are caused by:
+   *  missing or incorrectly ordered calls to OpenGL functions,
+      when no exceptions are thrown, but the visual effect is not as
+      expected;
+   *  miscalculated transformation matrices, which are virtually impossible
+      to debug.
+2. **Different platforms use different bindings for the OpenGL API, which
+   are not compatible,** e.g. Android implementation provides static methods,
+   while JOGL requires using an instance of OpenGL interface.
+
+The first issue is solved by adding another layer of abstraction on top of
+OpenGL. Glimpse implements typical use cases, providing a much more natural
+interface to the application developer.
+
+To solve the second issue, Glimpse is implemented as a Kotlin Multiplatform
+library, with the common code independent of the underlying OpenGL
+implementation. In principle, it even allows for non-OpenGL implementations.
+
+Currently, Glimpse supports the following implementations:
+*  Android
+*  Desktop Java (JOGL):
+   *  Windows
+   *  macOS
+   *  Linux
+
+### What Glimpse Is NOT
+
+**Glimpse is NOT a game engine.** Even though it builds another layer of
+abstraction on top of OpenGL, it is still a relatively low-level library.
+
+## Gradle Setup
+
+When implementing a Glimpse application, include the following dependencies
+in your `build.gradle.kts`:
+
+```kotlin
+// CORE LIBRARY:
+
+implementation("graphics.glimpse:glimpse-core:[GLIMPSE_VERSION]")
+
+// ANNOTATION PROCESSOR:
+
+// If you want Glimpse Processor to generate Java code:
+kapt("graphics.glimpse:glimpse-processor-java:[GLIMPSE_VERSION]")
+
+// If you want Glimpse Processor to generate Kotlin code:
+kapt("graphics.glimpse:glimpse-processor-kotlin:[GLIMPSE_VERSION]")
+// Read about limitations of generated Kotlin sources:
+//     https://kotlinlang.org/docs/kapt.html#generating-kotlin-sources
+
+// UI COMPONENTS:
+
+// If you want to use platform-specific UI components:
+implementation("graphics.glimpse:glimpse-ui:[GLIMPSE_VERSION]")
+
+// If you want to use Compose multiplatform UI components:
+implementation("graphics.glimpse:glimpse-ui-compose:[GLIMPSE_VERSION]")
+
+// ADVANCED FEATURES:
+
+// If you want to load meshes from Wavefront OBJ files:
+implementation("graphics.glimpse:glimpse-obj:[GLIMPSE_VERSION]")
+
+// If you want to render images offscreen:
+implementation("graphics.glimpse:glimpse-offscreen:[GLIMPSE_VERSION]")
+
+```
+
+If you are still using Groovy scripts in your project, include the following
+dependencies in your `build.gradle`:
+
+```groovy
+// CORE LIBRARY:
+
+implementation 'graphics.glimpse:glimpse-core:[GLIMPSE_VERSION]'
+
+// ANNOTATION PROCESSOR:
+
+// If you want Glimpse Processor to generate Java code:
+kapt 'graphics.glimpse:glimpse-processor-java:[GLIMPSE_VERSION]'
+
+// If you want Glimpse Processor to generate Kotlin code:
+kapt 'graphics.glimpse:glimpse-processor-kotlin:[GLIMPSE_VERSION]'
+// Read about limitations of generated Kotlin sources:
+//     https://kotlinlang.org/docs/kapt.html#generating-kotlin-sources
+
+// UI COMPONENTS:
+
+// If you want to use platform-specific UI components:
+implementation 'graphics.glimpse:glimpse-ui:[GLIMPSE_VERSION]'
+
+// If you want to use Compose multiplatform UI components:
+implementation 'graphics.glimpse:glimpse-ui-compose:[GLIMPSE_VERSION]'
+
+// ADVANCED FEATURES:
+
+// If you want to load meshes from Wavefront OBJ files:
+implementation 'graphics.glimpse:glimpse-obj:[GLIMPSE_VERSION]'
+
+// If you want to render images offscreen:
+implementation 'graphics.glimpse:glimpse-offscreen:[GLIMPSE_VERSION]'
+```
+
+## Core Features
+
+### Rendering Callback
+
+To use Glimpse for rendering, you must create your own implementation of
+[`GlimpseCallback`][apidocs:GlimpseCallback].
+
+Run all operations that should be executed only once in `onCreate()`.
+In most cases, this includes:
+*  basic configuration (clear color, depth test, face culling, etc.),
+*  building meshes,
+*  loading textures,
+*  compiling shaders and linking programs.
+
+Handle viewport changes in `onResize()`, including updates to cameras
+and lenses. At this stage, `GlimpseAdapter.glViewport()` should be called.
+
+Run all per-frame operations in `onRender()`, including rendering itself.
+Don't forget to call `GlimpseAdapter.glClear()`.
+
+Call all `dispose()` methods in `onDestroy()`
+
+### OpenGL Adapter
+
+Abstraction layer is built on top of
+[`GlimpseAdapter`][apidocs:GlimpseAdapter], which provides a common OpenGL
+interface on all supported platforms.
+
+In most cases, `GlimpseAdapter` is merely passed as a parameter to other
+components, but it needs to be called directly for most basic operations:
+
+```kotlin
+override fun onCreate(gl: GlimpseAdapter) {
+    gl.clearColor(Vec4(0f, 0f, 0f, 1f))
+    gl.glClearDepth(1f)
+    gl.glDepthTest(DepthTestFunction.LESS_OR_EQUAL)
+    gl.glCullFace(FaceCullingMode.DISABLED)
+    gl.glEnableBlending()
+    gl.glBlendingFunction(
+        BlendingFactorFunction.SOURCE_ALPHA,
+        BlendingFactorFunction.ONE_MINUS_SOURCE_ALPHA
+    )
+}
+```
+
+### Basic Types
+
+#### Angles
+
+To avoid the confusion with angle measurement units, Glimpse uses a data
+class [`Angle`][apidocs:Angle], containing both `deg` and `rad` values.
+
+To create an angle, call one of the available factory methods:
+
+```kotlin
+Angle.fromDeg(45f)
+Angle.fromRad(0.785f)
+```
+
+Glimpse will automatically use correct measurement unit required in each
+supported use case.
+
+#### Vectors
+
+Glimpse defines 2D, 3D and 4D vector types: `Vec2`, `Vec3` and `Vec4`.
+
+`Vec2` can also be used as texture coordinates, while `Vec3` and `Vec4`
+can act as colors without or with alpha channel respectively.
+
+For more information, visit the [API docs][apidocs:core:types].
+
+#### Matrices
+
+There are 2×2, 3×3 and 4×4 matrices defined in Glimpse—`Mat2`, `Mat3`
+and `Mat4`—implementing all sorts of operations, such as multiplication,
+transposition or inversion.
+
+A number of utility functions provide an easy way to create matrices
+for various affine transformations.
+
+For more information, visit the [API docs][apidocs:core:types].
+
+### Buffers
+
+[Buffers][apidocs:Buffer] provide data arrays to shaders. They are
+the foundation, meshes and models are built on top of. In most cases,
+there is no need to use buffers explicitly.
+
+To allow future support for non-JVM platforms, Glimpse introduces wrappers
+for `java.nio` buffers:
+*  [`FloatBufferData`][apidocs:FloatBufferData]
+*  [`IntBufferData`][apidocs:IntBufferData]
+
+### Meshes And Models
+
+A [`Mesh`][apidocs:Mesh] defines a set of vertices the way they are rendered.
+Currently, only meshes of triangles are supported out-of-the-box, but it is
+possible to create a custom mesh that consists of points, lines, quads, etc.
+
+#### Building Mesh Data
+
+To create a mesh, [`MeshData`][apidocs:MeshData] is required, which can be
+built with a [`MeshDataBuilder`][apidocs:MeshDataBuilder]:
+
+```kotlin
+val triangleMeshData = MeshDataBuilder()
+    .addVertex(Vec3(-1f, -1f, 0f))
+    .addVertex(Vec3(1f, 1f, 0f))
+    .addVertex(Vec3(0f, 0f, 1f))
+    .addTextureCoordinates(Vec2(0f, 0f))
+    .addTextureCoordinates(Vec2(2f, 0f))
+    .addTextureCoordinates(Vec2(1f, 1f))
+    .addNormal(Vec3(0f, -1f, 0f))
+    .addNormal(Vec3(1f, 0f, 0f))
+    .addNormal(Vec3(0.7f, -0.7f, 0f))
+    .addFace(
+        listOf(
+            MeshDataBuilder.FaceVertex(0, 0, 0),
+            MeshDataBuilder.FaceVertex(1, 1, 1),
+            MeshDataBuilder.FaceVertex(2, 2, 2),
+        )
+    )
+    .buildArrayMeshData()
+```
+
+Method `buildArrayMeshData()` builds a non-indexed mesh. Indexed mesh data
+implementations are currently not available.
+
+#### Creating A Mesh
+
+With an instance of `ArrayMeshData` built with a `MeshDataBuilder`,
+a `Mesh` can now be created:
+
+```kotlin
+override fun onCreate(gl: GlimpseAdapter) {
+    val meshFactory = Mesh.Factory.newInstance(gl)
+    val mesh = meshFactory.createMesh(meshData)
+}
+```
+
+To draw different meshes, create a custom implementation of `Mesh`
+interface. Custom implementations of `MeshData` are not supported.
+
+#### Models
+
+You can implement [`Model`][apidocs:Model] interface to combine a `Mesh`
+and a model transformation matrix in a single object.
+
+### Textures
+
+### Cameras And Lenses
+
+### Shaders And Programs
+
+#### Annotations
+
+### Logging
+
+## UI Components
+
+### Android
+
+### Java Swing
+
+### Multiplatform Compose
+
+## Advanced Features
+
+### Wavefront OBJ Files
+
+### Offscreen Rendering
+
 ## API Docs
 
 Visit [API Docs website][apidocs] to see the latest documentation.
 
 
 [apidocs]: https://docs.glimpse.graphics/
+[apidocs:GlimpseAdapter]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse/-glimpse-adapter/index.html
+[apidocs:GlimpseCallback]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse/-glimpse-callback/index.html
+[apidocs:core:types]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.types/index.html
+[apidocs:Angle]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.types/-angle/index.html
+[apidocs:Buffer]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.buffers/-buffer/index.html
+[apidocs:FloatBufferData]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.buffers/-float-buffer-data/index.html
+[apidocs:IntBufferData]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.buffers/-int-buffer-data/index.html
+[apidocs:Mesh]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.meshes/-mesh/index.html
+[apidocs:MeshData]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.meshes/-mesh-data/index.html
+[apidocs:MeshDataBuilder]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.meshes/-mesh-data-builder/index.html
+[apidocs:Model]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.models/-model/index.html
+
 [opengl]: https://www.opengl.org/
 [kotlinlang]: https://kotlinlang.org/
 [apache-2]: http://www.apache.org/licenses/LICENSE-2.0
