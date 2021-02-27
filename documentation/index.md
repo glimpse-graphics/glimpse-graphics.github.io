@@ -290,6 +290,12 @@ and a model transformation matrix in a single object.
 
 ### Multiplatform Compose
 
+<video controls loop poster="/assets/video/glimpse_triangle_example_480.png">
+  <source src="/assets/video/glimpse_triangle_example_480.mov" type="video/quicktime" />
+  <source src="/assets/video/glimpse_triangle_example_480.webm" type="video/webm" />
+  Your browser does not support HTML5 videos.
+</video>
+
 ## Advanced Features
 
 ### Wavefront OBJ Files
