@@ -274,6 +274,81 @@ and a model transformation matrix in a single object.
 
 ### Textures
 
+#### Building A Texture Image Source
+
+An instance of  [`TextureImageSource`][apidocs:TextureImageSource] can be
+built with a [`TextureImageSourceBuilder`][apidocs:TextureImageSourceBuilder],
+which implements a set of platform-specific methods and extension functions
+that allow using different texture image sources.
+
+The desktop implementation allows for loading textures from:
+*  `InputStream`s,
+*  `File`s,
+*  resources.
+
+For example:
+```kotlin
+TextureImageSource.builder()
+    .fromResource(this, "bricks.png")
+    .build()
+```
+
+The Android implementation provides the following texture image sources:
+*  `Bitmap`s,
+*  `File`s,
+*  assets.
+
+For example:
+```kotlin
+TextureImageSource.builder()
+    .fromAsset(context, "bricks.png")
+    .build()
+```
+
+#### Prepared Texture Image Sources
+
+Instead of using `build()` method of `TextureImageSourceBuilder`, you may
+call `buildPrepared()`, which returns a `TextureImageSource` containing
+a pre-loaded texture image.
+
+Creating a texture from a prepared texture image source is quicker,
+and therefore reduces the workload of OpenGL thread. On the other hand,
+a prepared image source consumes much more memory, and thus it should be
+used with caution.
+
+For example, on Android:
+```kotlin
+TextureImageSource.builder()
+    .fromAsset(context, "bricks.png")
+    .buildPrepared()
+```
+
+Desktop implementation of `buildPrepared()` additionally requires the
+`GLProfile` used by the `GLJPanel`:
+```kotlin
+TextureImageSource.builder()
+    .fromResource(this, "bricks.png")
+    .buildPrepared(glimpsePanel.glProfile)
+```
+
+#### Building Textures
+
+Once a `TextureImageSource` is built, it can be used to create a
+[`Texture`][apidocs:Texture].
+
+[Texture `Builder`][apidocs:Texture:Builder] allows for building textures
+from multiple sources in a convenient way:
+```kotlin
+override fun onCreate(gl: GlimpseAdapter) {
+    val textures = Texture.Builder.getInstance(gl)
+        .addTexture(textureSource1)
+        .addTexture(textureSource2)
+        .addTexture(textureSource3)
+        .generateMipmaps()
+        .build()
+}
+```
+
 ### Cameras And Lenses
 
 ### Shaders And Programs
@@ -319,6 +394,10 @@ Visit [API Docs website][apidocs] to see the latest documentation.
 [apidocs:MeshData]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.meshes/-mesh-data/index.html
 [apidocs:MeshDataBuilder]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.meshes/-mesh-data-builder/index.html
 [apidocs:Model]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.models/-model/index.html
+[apidocs:TextureImageSource]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture-image-source/index.html
+[apidocs:TextureImageSourceBuilder]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture-image-source-builder/index.html
+[apidocs:Texture]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture/index.html
+[apidocs:Texture:Builder]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture/-builder/index.html
 
 [opengl]: https://www.opengl.org/
 [kotlinlang]: https://kotlinlang.org/
