@@ -307,18 +307,18 @@ and a model transformation matrix in a single object.
 Visit [API Docs website][apidocs] to see the latest documentation.
 
 
-[apidocs]: https://docs.glimpse.graphics/
-[apidocs:GlimpseAdapter]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse/-glimpse-adapter/index.html
-[apidocs:GlimpseCallback]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse/-glimpse-callback/index.html
-[apidocs:core:types]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.types/index.html
-[apidocs:Angle]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.types/-angle/index.html
-[apidocs:Buffer]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.buffers/-buffer/index.html
-[apidocs:FloatBufferData]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.buffers/-float-buffer-data/index.html
-[apidocs:IntBufferData]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.buffers/-int-buffer-data/index.html
-[apidocs:Mesh]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.meshes/-mesh/index.html
-[apidocs:MeshData]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.meshes/-mesh-data/index.html
-[apidocs:MeshDataBuilder]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.meshes/-mesh-data-builder/index.html
-[apidocs:Model]: https://docs.glimpse.graphics/v1.0.0/glimpse/core/glimpse-core/graphics.glimpse.models/-model/index.html
+[apidocs]: https://glimpse.graphics/docs/
+[apidocs:GlimpseAdapter]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse/-glimpse-adapter/index.html
+[apidocs:GlimpseCallback]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse/-glimpse-callback/index.html
+[apidocs:core:types]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.types/index.html
+[apidocs:Angle]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.types/-angle/index.html
+[apidocs:Buffer]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.buffers/-buffer/index.html
+[apidocs:FloatBufferData]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.buffers/-float-buffer-data/index.html
+[apidocs:IntBufferData]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.buffers/-int-buffer-data/index.html
+[apidocs:Mesh]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.meshes/-mesh/index.html
+[apidocs:MeshData]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.meshes/-mesh-data/index.html
+[apidocs:MeshDataBuilder]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.meshes/-mesh-data-builder/index.html
+[apidocs:Model]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.models/-model/index.html
 
 [opengl]: https://www.opengl.org/
 [kotlinlang]: https://kotlinlang.org/
