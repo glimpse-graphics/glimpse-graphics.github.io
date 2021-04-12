@@ -355,6 +355,29 @@ override fun onCreate(gl: GlimpseAdapter) {
 
 ### Cameras And Lenses
 
+#### Cameras
+
+Implementations of [`Camera`][apidocs:Camera] interface help to calculate
+a view matrix.
+
+*  `FreeCamera` is not bound to any specific target. Its orientation is
+   determined by its [roll, pitch and yaw][wiki:pitch-yaw-roll] rotation
+   angles.
+*  `TargetCamera` looks at a specific `target` point in space.
+*  `RelativeTargetCamera` also looks at a specific point in space,
+   but its position is defined using spherical coordinates relative to
+   the `target`.
+
+#### Lenses
+
+Projection matrix can be calculated using [`Lens`][apidocs:Lens] interface.
+
+*  `OrthographicLens` provides orthographic projection matrix.
+*  `FrustumLens` provides a perspective projection matrix defined by
+   a given frustum.
+*  `PerspectiveLens` provides a perspective projection matrix defined by
+   a field of view angle.
+
 ### Shaders And Programs
 
 #### Annotations
@@ -402,7 +425,11 @@ Visit [API Docs website][apidocs] to see the latest documentation.
 [apidocs:TextureImageSourceBuilder]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture-image-source-builder/index.html
 [apidocs:Texture]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture/index.html
 [apidocs:Texture:Builder]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.textures/-texture/-builder/index.html
+[apidocs:Camera]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.cameras/-camera/index.html
+[apidocs:Lens]: https://glimpse.graphics/docs/v1.0.0/glimpse/core/core/graphics.glimpse.lenses/-lens/index.html
 
 [opengl]: https://www.opengl.org/
 [kotlinlang]: https://kotlinlang.org/
 [apache-2]: http://www.apache.org/licenses/LICENSE-2.0
+
+[wiki:pitch-yaw-roll]: https://en.wikipedia.org/wiki/Aircraft_principal_axes
