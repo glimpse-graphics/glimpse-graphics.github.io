@@ -225,6 +225,10 @@ possible to create a custom mesh that consists of points, lines, quads, etc.
 
 #### Building Mesh Data
 
+_**Note:** This section describes manual mesh data creation.
+In most cases, however, the desired way to go is to use
+[Wavefront OBJ files](#wavefront-obj-files)._
+
 To create a mesh, [`MeshData`][apidocs:MeshData] is required, which can be
 built with a [`MeshDataBuilder`][apidocs:MeshDataBuilder]:
 
