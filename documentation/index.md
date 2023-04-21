@@ -6,6 +6,8 @@ abstract: Glimpse Documentation
 keywords: docs,documentation,glimpse,opengl,3d
 ---
 
+{% include warn.html content="This page is out-of-date." %}
+
 ## Introduction
 
 Glimpse is an open-source project aimed to make [OpenGL][opengl] simple.
