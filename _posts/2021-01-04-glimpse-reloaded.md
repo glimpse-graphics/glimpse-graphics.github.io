@@ -7,7 +7,7 @@ abstract: |
   multiplatform project.
 keywords: glimpse
 author: sczerwinski
-tags: glimpse
+tags: [glimpse]
 image: 2021-01-04-glimpse-reloaded.png
 ---
 
