@@ -1,13 +1,13 @@
-- date: 2022-04-15
-  title: "Version 1.1.0 enters beta"
-  content: Version 1.1.0 now enters beta stage.
-  url: /2022/04/15/1-1-0-beta.html
+- date: 2023-04-24
+  title: "Road Towards Glimpse 2"
+  content: Plans for new major release 2.0.0 and the reasons behind it.
+  url: /2023/04/24/road-towards-glimpse-2.html
   tags: glimpse
 
-- date: 2021-02-27
-  title: "Release 1.0.0"
-  content: First stable version of Glimpse has been released.
-  url: /2021/02/27/release-1-0-0.html
+- date: 2023-01-24
+  title: "Hotfix 1.2.1"
+  content: Hotfix 1.2.1 has been released.
+  url: /2023/01/24/hotfix-1-2-1.html
   tags: glimpse
 
 - date: 2021-01-04
