@@ -6,6 +6,7 @@ abstract: Plans for new major release 2.0.0 and the reasons behind it.
 keywords: glimpse
 author: sczerwinski
 tags: [glimpse]
+image: 2023-04-24-road-towards-glimpse-2.jpg
 ---
 
 I decided the time has come to start working on the next major release
